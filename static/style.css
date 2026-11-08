@@ -1,0 +1,109 @@
+
+/* SkillGap AI - Modern Purple & Blue Design */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f5f3ff;
+    color: #252044;
+    line-height: 1.6;
+}
+
+header, nav {
+    background: linear-gradient(135deg, #5b21b6, #2563eb);
+    color: white;
+    padding: 20px 8%;
+}
+
+h1, h2, h3 {
+    color: #4c1d95;
+    margin-bottom: 15px;
+}
+
+header h1, nav h1 {
+    color: white;
+}
+
+a {
+    color: #6d28d9;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #2563eb;
+}
+
+main, section {
+    padding: 35px 8%;
+}
+
+button, input[type="submit"] {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px #7c3aed44;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 18px;
+    border: 1px solid #ddd6fe;
+    border-radius: 10px;
+    background: white;
+    font-size: 15px;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid #8b5cf6;
+}
+
+form, .card {
+    background: white;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 30px #312e8110;
+    max-width: 850px;
+    margin: 25px auto;
+}
+
+.card {
+    border: 1px solid #ede9fe;
+}
+
+footer {
+    background: #24134d;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    main, section {
+        padding: 22px 5%;
+    }
+
+    form, .card {
+        padding: 18px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
