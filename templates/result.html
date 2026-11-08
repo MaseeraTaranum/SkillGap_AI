@@ -5,168 +5,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Career Roadmap | SkillGap AI</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <style>
         .result-page {
-            background: #f5f3ff;
-            color: #241b42;
-            font-family: 'Segoe UI', sans-serif;
+            background: #f4f3ff;
+            color: #25234a;
+            font-family: Arial, sans-serif;
+            padding: 30px 15px;
         }
 
         .result-shell {
             max-width: 1050px;
             margin: auto;
-            padding: 45px 22px;
-        }
-
-        .result-welcome {
-            text-align: center;
-            padding: 45px 15px;
-        }
-
-        .result-welcome h1 {
-            font-size: clamp(30px, 5vw, 48px);
-            margin: 20px 0;
-        }
-
-        .result-welcome h1 span {
-            color: #7c3aed;
-        }
-
-        .eyebrow {
-            color: #7c3aed;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-size: 12px;
         }
 
         .result-overview {
-            background: linear-gradient(135deg, #4c1d95, #2563eb);
+            background: linear-gradient(135deg, #6d28d9, #2563eb);
             color: white;
             padding: 35px;
-            border-radius: 25px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-            box-shadow: 0 15px 35px #4c1d9530;
+            border-radius: 20px;
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .gap-score {
-            display: flex;
-            align-items: center;
-            gap: 25px;
+        .result-overview h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
         }
 
         .gap-ring {
-            width: 135px;
-            height: 135px;
-            flex-shrink: 0;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            display: grid;
-            place-items: center;
-            background: conic-gradient(
-                #a78bfa calc(var(--gap) * 1%),
-                #ffffff35 0
-            );
-            position: relative;
-        }
-
-        .gap-ring:before {
-            content: "";
-            position: absolute;
-            width: 105px;
-            height: 105px;
-            border-radius: 50%;
-            background: #5429a5;
-        }
-
-        .gap-ring div {
-            position: relative;
-            text-align: center;
-        }
-
-        .gap-ring strong {
-            display: block;
-            font-size: 27px;
-        }
-
-        .gap-ring span {
-            font-size: 12px;
-        }
-
-        .gap-score h2 {
-            color: white;
-            font-size: 26px;
-        }
-
-        .gap-score p {
-            color: #e9ddff;
-        }
-
-        .profile-summary {
-            display: grid;
-            gap: 15px;
-        }
-
-        .profile-summary div {
-            padding: 12px 15px;
-            border-radius: 12px;
-            background: #ffffff18;
-        }
-
-        .profile-summary span {
-            display: block;
-            font-size: 11px;
-            color: #ddd6fe;
-            margin-bottom: 4px;
-        }
-
-        .profile-summary strong {
-            color: white;
-        }
-
-        .result-columns {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 22px;
-            margin: 30px 0;
-        }
-
-        .result-panel {
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 25px #312e8110;
-        }
-
-        .panel-heading {
+            margin: 25px auto;
             display: flex;
-            gap: 14px;
             align-items: center;
-            margin-bottom: 22px;
+            justify-content: center;
+            background: rgba(255,255,255,0.18);
+            border: 7px solid white;
+            font-size: 28px;
+            font-weight: bold;
         }
 
-        .panel-heading h2 {
-            margin: 0;
-            color: #4c1d95;
+        .result-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(50,40,100,0.07);
         }
 
-        .panel-heading p {
-            color: #77718c;
-            font-size: 13px;
-        }
-
-        .panel-icon {
-            width: 40px;
-            height: 40px;
-            display: grid;
-            place-items: center;
-            border-radius: 12px;
-            background: #ede9fe;
-            color: #6d28d9;
-            font-size: 20px;
+        .result-card h2 {
+            color: #5b21b6;
+            margin-top: 0;
         }
 
         .skill-list {
@@ -176,10 +69,9 @@
         }
 
         .skill-tag {
-            padding: 9px 15px;
-            border-radius: 30px;
+            padding: 9px 14px;
+            border-radius: 20px;
             font-size: 14px;
-            font-weight: 600;
         }
 
         .known-tag {
@@ -192,85 +84,36 @@
             color: #6d28d9;
         }
 
-        .empty-note {
-            color: #77718c;
-            font-size: 14px;
-        }
-
-        .roadmap-section {
-            background: white;
-            padding: 30px;
-            border-radius: 22px;
-            box-shadow: 0 8px 25px #312e8110;
-        }
-
-        .roadmap-heading {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .roadmap-heading h2 {
-            font-size: 27px;
-            color: #4c1d95;
-        }
-
-        .roadmap-heading p {
-            color: #77718c;
-        }
-
-        .roadmap-count {
-            background: #ede9fe;
-            color: #6d28d9;
-            padding: 10px 16px;
-            border-radius: 30px;
-            font-weight: 700;
-            white-space: nowrap;
+        .profile-details p {
+            margin: 10px 0;
         }
 
         .learning-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+            padding-left: 25px;
         }
 
         .learning-item {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            padding: 20px 12px;
-            border-bottom: 1px solid #eeeaf7;
-        }
-
-        .learning-number {
-            min-width: 45px;
-            height: 45px;
-            display: grid;
-            place-items: center;
-            border-radius: 13px;
-            background: linear-gradient(135deg, #7c3aed, #2563eb);
-            color: white;
-            font-weight: 700;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #f8f7ff;
+            border-radius: 12px;
         }
 
         .learning-item h3 {
-            margin: 0 0 5px;
-            color: #4c1d95;
+            color: #5b21b6;
+            margin: 0 0 8px;
         }
 
         .learning-item p {
-            margin: 0;
-            color: #77718c;
+            margin: 5px 0;
         }
 
         .learning-resource {
             display: inline-block;
             margin-top: 10px;
             color: #7c3aed;
-            font-size: 13px;
-            font-weight: 700;
+            font-size: 14px;
+            font-weight: bold;
             text-decoration: none;
         }
 
@@ -279,60 +122,55 @@
             text-decoration: underline;
         }
 
-        .result-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin: 35px 0 20px;
-        }
-
-        .result-actions a {
-            display: inline-block;
-            padding: 14px 23px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .result-actions .button {
+        .download-button {
+            display: block;
+            margin: 30px auto;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 30px;
             background: linear-gradient(135deg, #7c3aed, #2563eb);
             color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
         }
 
-        .result-actions .secondary-button {
-            background: white;
-            color: #6d28d9;
-            border: 1px solid #ddd6fe;
+        .download-button:hover {
+            opacity: 0.9;
         }
 
-        .result-footnote {
-            text-align: center;
-            color: #89839b;
-            font-size: 13px;
-        }
-
-        @media(max-width: 650px) {
-            .result-overview,
-            .result-columns {
-                grid-template-columns: 1fr;
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
             }
 
-            .gap-score {
-                flex-wrap: wrap;
+            .download-button {
+                display: none !important;
             }
 
-            .roadmap-heading {
-                align-items: flex-start;
-                flex-direction: column;
+            .result-card,
+            .result-overview {
+                box-shadow: none !important;
+                break-inside: avoid;
             }
 
             .result-shell {
-                padding: 20px 14px;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .result-overview {
+                padding: 25px 15px;
             }
 
-            .roadmap-section {
-                padding: 20px;
+            .result-overview h1 {
+                font-size: 25px;
+            }
+
+            .result-card {
+                padding: 18px;
             }
         }
     </style>
@@ -340,239 +178,131 @@
 
 <body class="result-page">
 
-    <header class="site-header">
-        <a class="brand" href="{{ url_for('home') }}">
-            <span class="brand-mark">s.</span>
-            <span>skillgap<span class="brand-ai">.ai</span></span>
-        </a>
+<div class="result-shell">
 
-        <a class="text-link" href="{{ url_for('assessment') }}">
-            New assessment ↗
-        </a>
-    </header>
+    <section class="result-overview">
+        <h1>Your Career Roadmap Is Ready!</h1>
+        <p>Big goals. Clear next steps.</p>
 
-    <main class="result-shell">
-
-        <section class="result-welcome">
-            <div class="eyebrow">✦ YOUR PERSONAL CAREER SNAPSHOT</div>
-
-            <h1>
-                You’re on your way,
-                <span>{{ student_name }}.</span>
-            </h1>
-
-            <p>
-                Your skills are taking you closer to becoming a
-                <strong>{{ career }}</strong>.
-            </p>
-        </section>
-
-        <section class="result-overview">
-
-            <div class="gap-score">
-
-                <div class="gap-ring" style="--gap: {{ skill_gap }}">
-                    <div>
-                        <strong>{{ skill_gap }}%</strong>
-                        <span>Skill gap</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h2>{{ readiness_level }}</h2>
-                    <p>{{ readiness_message }}</p>
-                </div>
-
-            </div>
-
-            <div class="profile-summary">
-                <div>
-                    <span>CAREER GOAL</span>
-                    <strong>{{ career }}</strong>
-                </div>
-
-                <div>
-                    <span>EDUCATION</span>
-                    <strong>{{ education }}</strong>
-                </div>
-
-                <div>
-                    <span>EXPERIENCE</span>
-                    <strong>{{ experience }}</strong>
-                </div>
-            </div>
-
-        </section>
-
-        <section class="result-columns">
-
-            <article class="result-panel">
-
-                <div class="panel-heading">
-                    <span class="panel-icon">✓</span>
-
-                    <div>
-                        <h2>Your strengths</h2>
-                        <p>Skills you already bring with you</p>
-                    </div>
-                </div>
-
-                <div class="skill-list">
-                    {% for skill in existing_skills %}
-                    <span class="skill-tag known-tag">
-                        ✓ {{ skill }}
-                    </span>
-                    {% else %}
-                    <p class="empty-note">
-                        Your learning journey starts here.
-                    </p>
-                    {% endfor %}
-                </div>
-
-            </article>
-
-            <article class="result-panel">
-
-                <div class="panel-heading">
-                    <span class="panel-icon">↗</span>
-
-                    <div>
-                        <h2>Room to grow</h2>
-                        <p>Skills to explore for your goal</p>
-                    </div>
-                </div>
-
-                <div class="skill-list">
-                    {% for skill in missing_skills %}
-                    <span class="skill-tag learn-tag">
-                        {{ skill }}
-                    </span>
-                    {% else %}
-                    <p class="empty-note">
-                        Keep building on your strengths!
-                    </p>
-                    {% endfor %}
-                </div>
-
-            </article>
-
-        </section>
-
-        <section class="roadmap-section">
-
-            <div class="roadmap-heading">
-
-                <div>
-                    <div class="eyebrow">✦ YOUR PERSONALIZED PLAN</div>
-
-                    <h2>A roadmap, one step at a time.</h2>
-
-                    <p>
-                        Focus on one skill at a time.
-                        Progress is progress.
-                    </p>
-                </div>
-
-                <span class="roadmap-count">
-                    {{ learning_roadmap|length }} steps
-                </span>
-
-            </div>
-
-            {% if learning_roadmap %}
-
-            <ol class="learning-list">
-
-                {% for item in learning_roadmap %}
-
-                <li class="learning-item">
-
-                    <span class="learning-number">
-                        {{ "%02d"|format(loop.index) }}
-                    </span>
-
-                    <div>
-                        <h3>{{ item.skill }}</h3>
-                        <p>{{ item.description }}</p>
-
-                        {% set skill_name = item.skill|lower %}
-
-                        {% if skill_name == 'css' %}
-                        <a class="learning-resource"
-                           href="https://developer.mozilla.org/en-US/docs/Web/CSS"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning CSS ↗
-                        </a>
-
-                        {% elif skill_name == 'javascript' %}
-                        <a class="learning-resource"
-                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning JavaScript ↗
-                        </a>
-
-                        {% elif skill_name == 'react' %}
-                        <a class="learning-resource"
-                           href="https://react.dev/learn"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning React ↗
-                        </a>
-
-                        {% elif skill_name == 'python' %}
-                        <a class="learning-resource"
-                           href="https://docs.python.org/3/tutorial/"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning Python ↗
-                        </a>
-
-                        {% elif skill_name == 'sql' %}
-                        <a class="learning-resource"
-                           href="https://sqlbolt.com/"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning SQL ↗
-                        </a>
-
-                        {% elif skill_name == 'git' %}
-                        <a class="learning-resource"
-                           href="https://git-scm.com/book/en/v2"
-                           target="_blank" rel="noopener noreferrer">
-                            Start learning Git ↗
-                        </a>
-
-                        {% endif %}
-                    </div>
-
-                </li>
-
-                {% endfor %}
-
-            </ol>
-
-            {% else %}
-
-            <p>You're ready to keep growing your skills!</p>
-
-            {% endif %}
-
-        </section>
-
-        <div class="result-actions">
-
-            <a class="button" href="{{ url_for('assessment') }}">
-                Explore another career ↗
-            </a>
-
-            <a class="secondary-button" href="{{ url_for('home') }}">
-                Back to home
-            </a>
-
+        <div class="gap-ring">
+            {{ skill_gap }}%
         </div>
 
-        <p class="result-footnote">
-            Your assessment is a starting point for your learning journey.
-        </p>
+        <h2>Your Skill Gap</h2>
+        <p>Use this roadmap to move closer to your career goal.</p>
+    </section>
 
-    </main>
+    <section class="result-card">
+        <h2>Your Profile</h2>
+
+        <div class="profile-details">
+            <p><strong>Name:</strong> {{ name }}</p>
+            <p><strong>Career Goal:</strong> {{ career_goal }}</p>
+            <p><strong>Education:</strong> {{ education }}</p>
+            <p><strong>Experience:</strong> {{ experience }}</p>
+        </div>
+    </section>
+
+    <section class="result-card">
+        <h2>Your Strengths</h2>
+
+        <div class="skill-list">
+            {% for skill in existing_skills %}
+            <span class="skill-tag known-tag">
+                ✓ {{ skill }}
+            </span>
+            {% else %}
+            <p class="empty-note">Your learning journey starts here.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="result-card">
+        <h2>Skills to Improve</h2>
+
+        <div class="skill-list">
+            {% for skill in missing_skills %}
+            <span class="skill-tag learn-tag">
+                {{ skill }}
+            </span>
+            {% else %}
+            <p class="empty-note">Keep building on your strengths!</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="result-card">
+        <h2>Your Personalized Learning Roadmap</h2>
+
+        {% if learning_roadmap %}
+        <ol class="learning-list">
+
+            {% for item in learning_roadmap %}
+            <li class="learning-item">
+
+                <h3>{{ item.skill }}</h3>
+
+                <p>{{ item.description }}</p>
+
+                {% set skill_name = item.skill|lower %}
+
+                {% if skill_name == 'css' %}
+                <a class="learning-resource"
+                   href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning CSS ↗
+                </a>
+
+                {% elif skill_name == 'javascript' %}
+                <a class="learning-resource"
+                   href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning JavaScript ↗
+                </a>
+
+                {% elif skill_name == 'react' %}
+                <a class="learning-resource"
+                   href="https://react.dev/learn"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning React ↗
+                </a>
+
+                {% elif skill_name == 'python' %}
+                <a class="learning-resource"
+                   href="https://docs.python.org/3/tutorial/"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning Python ↗
+                </a>
+
+                {% elif skill_name == 'sql' %}
+                <a class="learning-resource"
+                   href="https://sqlbolt.com/"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning SQL ↗
+                </a>
+
+                {% elif skill_name == 'git' %}
+                <a class="learning-resource"
+                   href="https://git-scm.com/book/en/v2"
+                   target="_blank" rel="noopener noreferrer">
+                    Start learning Git ↗
+                </a>
+                {% endif %}
+
+            </li>
+            {% endfor %}
+
+        </ol>
+        {% else %}
+        <p>You're ready to keep growing your skills!</p>
+        {% endif %}
+    </section>
+
+    <button class="download-button" onclick="window.print()">
+        Download My Career Roadmap
+    </button>
+
+</div>
 
 </body>
 </html>
