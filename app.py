@@ -473,7 +473,9 @@ def logout():
     return redirect(url_for("login"))
 
 
+# CREATE DATABASE WHEN APP STARTS
+create_database()
+
 # RUN APPLICATION
 if __name__ == "__main__":
-    create_database()
     app.run(debug=True)
