@@ -265,6 +265,20 @@
             color: #77718c;
         }
 
+        .learning-resource {
+            display: inline-block;
+            margin-top: 10px;
+            color: #7c3aed;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .learning-resource:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
         .learning-arrow {
             margin-left: auto;
             color: #7c3aed;
@@ -486,9 +500,39 @@
                     <div>
                         <h3>{{ item.skill }}</h3>
                         <p>{{ item.description }}</p>
-                    </div>
 
-                    <span class="learning-arrow">↗</span>
+                        {% set skill_name = item.skill|lower %}
+
+                        {% if skill_name == 'javascript' %}
+                        <a class="learning-resource"
+                           href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning JavaScript ↗
+                        </a>
+
+                        {% elif skill_name == 'react' %}
+                        <a class="learning-resource"
+                           href="https://react.dev/learn"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning React ↗
+                        </a>
+
+                        {% elif skill_name == 'sql' %}
+                        <a class="learning-resource"
+                           href="https://sqlbolt.com/"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning SQL ↗
+                        </a>
+
+                        {% elif skill_name == 'git' %}
+                        <a class="learning-resource"
+                           href="https://git-scm.com/book/en/v2"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning Git ↗
+                        </a>
+
+                        {% endif %}
+                    </div>
 
                 </li>
 
