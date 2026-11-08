@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f8f5">
+    <meta name="description" content="Find your next step with a personalized skill-gap assessment and career learning roadmap.">
+    <title>SkillGap AI — Build a career that fits</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-page">
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('home') }}" aria-label="SkillGap AI home">
+            <span class="brand-mark">s.</span>
+            <span>skillgap<span class="brand-ai">.ai</span></span>
+        </a>
+        <nav class="site-nav" aria-label="Main navigation">
+            <a href="#how-it-works">How it works</a>
+            <a href="{{ url_for('login') }}">Admin</a>
+            <a class="button button-small" href="{{ url_for('assessment') }}">Start assessment <span aria-hidden="true">↗</span></a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR NEXT CHAPTER STARTS HERE</div>
+                <h1>Big goals.<br><span>Clear next steps.</span></h1>
+                <p class="hero-description">Find out where your skills stand and get a personal roadmap to the career you want. No guesswork, just a good place to start.</p>
+                <div class="hero-actions">
+                    <a class="button" href="{{ url_for('assessment') }}">Discover your skill gaps <span aria-hidden="true">↗</span></a>
+                    <span class="time-note"><span aria-hidden="true">◷</span> About 2 minutes</span>
+                </div>
+                <div class="hero-proof">
+                    <div class="proof-avatars" aria-hidden="true"><span>M</span><span>A</span><span>J</span></div>
+                    <p><strong>A little clarity goes a long way.</strong><br>Start with what you know. Grow from there.</p>
+                </div>
+            </div>
+            <div class="hero-art" aria-label="Illustration of a personalized learning roadmap">
+                <div class="art-glow"></div>
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+                <div class="spark spark-one">✳</div>
+                <div class="spark spark-two">✦</div>
+                <div class="roadmap-card">
+                    <div class="roadmap-top"><span class="roadmap-icon">↗</span><span class="roadmap-label">YOUR CAREER ROADMAP</span><span class="roadmap-menu">···</span></div>
+                    <p class="roadmap-title">Your next steps</p>
+                    <div class="roadmap-progress"><span></span></div>
+                    <div class="roadmap-step step-done"><span class="step-marker">✓</span><div><strong>Know your strengths</strong><small>Already in your toolkit</small></div></div>
+                    <div class="roadmap-step step-current"><span class="step-marker">02</span><div><strong>Build your skills</strong><small>A few new things to learn</small></div><span class="step-arrow">↗</span></div>
+                    <div class="roadmap-step step-next"><span class="step-marker">03</span><div><strong>Get career-ready</strong><small>Your goal is in sight</small></div></div>
+                    <div class="roadmap-footer"><span class="footer-spark">✳</span><span>Every expert started somewhere.</span></div>
+                </div>
+                <div class="floating-note"><span class="note-check">✓</span><span><strong>Made for you</strong><small>Your skills, your path</small></span></div>
+                <span class="art-caption">SMALL STEPS. REAL MOMENTUM.</span>
+            </div>
+        </section>
+
+        <section class="how-section" id="how-it-works">
+            <div class="section-heading">
+                <div><div class="eyebrow">A SIMPLE PLACE TO BEGIN</div><h2>Make your next move<br><span>with confidence.</span></h2></div>
+                <p>Wherever you are in your journey, a clearer picture makes it easier to take the next step.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card"><span class="feature-number">01</span><span class="feature-icon icon-lilac">◎</span><h3>See what you bring</h3><p>Tell us what you know and where you want to go. Your starting point is already valuable.</p></article>
+                <article class="feature-card"><span class="feature-number">02</span><span class="feature-icon icon-peach">⌁</span><h3>Spot the opportunities</h3><p>See how your current skills line up with the role you have in mind—and what to focus on next.</p></article>
+                <article class="feature-card"><span class="feature-number">03</span><span class="feature-icon icon-green">↗</span><h3>Get a plan that fits</h3><p>Leave with a personal learning roadmap, so the distance between here and your goal feels smaller.</p></article>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer"><a class="brand brand-footer" href="{{ url_for('home') }}"><span class="brand-mark">s.</span><span>skillgap<span class="brand-ai">.ai</span></span></a><span>A thoughtful first step toward what’s next.</span><a href="{{ url_for('assessment') }}">Take your assessment ↗</a></footer>
+</body>
+</html>

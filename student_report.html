@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Detailed Report</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f4f6;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .report {
+            max-width: 850px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px #0001;
+        }
+
+        h1 {
+            color: #4338ca;
+            text-align: center;
+        }
+
+        h2 {
+            color: #4338ca;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 8px;
+        }
+
+        .details p {
+            padding: 8px;
+            background: #f9fafb;
+            border-radius: 5px;
+        }
+
+        .gap {
+            font-size: 28px;
+            font-weight: bold;
+            color: #dc2626;
+        }
+
+        li {
+            margin: 12px 0;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #4338ca;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            .report { box-shadow: none; }
+            .back { display: none; }
+        }
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body class="report-page">
+    <div class="report">
+
+        <h1>Student Detailed Report</h1>
+
+        <h2>Student Information</h2>
+
+        <div class="details">
+            <p><strong>Name:</strong> {{ student.student_name }}</p>
+            <p><strong>Education:</strong> {{ student.education }}</p>
+            <p><strong>Career Goal:</strong> {{ student.career }}</p>
+            <p><strong>Experience:</strong> {{ student.experience }}</p>
+            <p><strong>Technical Skills:</strong> {{ student.skills }}</p>
+            <p><strong>Programming Languages:</strong> {{ student.languages }}</p>
+        </div>
+
+        <h2>Skill Gap Analysis</h2>
+
+        <p class="gap">{{ student.skill_gap }}%</p>
+
+        <p><strong>Readiness Level:</strong> {{ student.readiness_level }}</p>
+
+        <h2>Existing Skills</h2>
+        <ul>
+            {% for skill in existing_skills %}
+                <li>{{ skill }}</li>
+            {% else %}
+                <li>No matching skills found.</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Missing Skills</h2>
+        <ul>
+            {% for skill in missing_skills %}
+                <li>{{ skill }}</li>
+            {% else %}
+                <li>No missing skills!</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Personalized Learning Roadmap</h2>
+        <ol>
+            {% for item in learning_roadmap %}
+                <li>
+                    <strong>{{ item.skill }}</strong><br>
+                    {{ item.description }}
+                </li>
+            {% else %}
+                <li>Continue improving your existing skills.</li>
+            {% endfor %}
+        </ol>
+
+        <button onclick="window.print()">Print / Save as PDF</button>
+
+        <br>
+
+        <a href="{{ url_for('admin') }}" class="back">
+            Back to Dashboard
+        </a>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Administrator sign in for the SkillGap AI student dashboard.">
+    <title>Admin sign in — SkillGap AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+    <section class="login-story">
+        <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">s.</span><span>skillgap<span class="brand-ai">.ai</span></span></a>
+        <div class="login-story-copy">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE MORE CLARITY</div>
+            <h1>Small steps add up to <span>big things.</span></h1>
+            <p>Support every learner’s next move with a clearer view of their skills, progress, and goals.</p>
+        </div>
+        <div class="login-story-footer">A thoughtful first step toward what’s next.</div>
+    </section>
+    <main class="login-form-side">
+        <div class="login-container">
+            <h1>Welcome back</h1>
+            <p>Sign in to view the student dashboard.</p>
+            {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+            <form action="{{ url_for('login') }}" method="POST">
+                <input type="text" name="username" placeholder="Admin username" autocomplete="username" aria-label="Admin username" required>
+                <input type="password" name="password" placeholder="Password" autocomplete="current-password" aria-label="Password" required>
+                <button type="submit">Sign in to dashboard <span aria-hidden="true">↗</span></button>
+            </form>
+            <a href="{{ url_for('home') }}" class="back">← Back to SkillGap AI</a>
+        </div>
+    </main>
+</body>
+</html>

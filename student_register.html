@@ -1,0 +1,90 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration - SkillGap AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef2ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .register-box {
+            background: white;
+            padding: 35px;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #4338ca;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #4338ca;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-box">
+        <h2>Student Registration</h2>
+        <p style="text-align:center;">Create your SkillGap AI account</p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <form method="POST">
+            <input type="number" name="assessment_id"
+                   placeholder="Assessment ID" required>
+
+            <input type="text" name="student_name"
+                   placeholder="Student Name" required>
+
+            <input type="text" name="username"
+                   placeholder="Choose Username" required>
+
+            <input type="password" name="password"
+                   placeholder="Create Password" required>
+
+            <input type="password" name="confirm_password"
+                   placeholder="Confirm Password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p style="text-align:center;">
+            Already registered?
+            <a href="/student_login">Login</a>
+        </p>
+
+        <p style="text-align:center;">
+            <a href="/">Back to Home</a>
+        </p>
+    </div>
+</body>
+</html>

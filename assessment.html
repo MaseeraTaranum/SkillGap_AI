@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Share your experience to get a personalized career skill-gap analysis.">
+    <title>Your assessment — SkillGap AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="form-page">
+    <header class="site-header">
+        <a class="brand" href="{{ url_for('home') }}"><span class="brand-mark">s.</span><span>skillgap<span class="brand-ai">.ai</span></span></a>
+        <a class="text-link" href="{{ url_for('home') }}">← Back to home</a>
+    </header>
+    <main class="assessment-layout">
+        <aside class="assessment-aside">
+            <div class="eyebrow"><span class="eyebrow-dot"></span> YOUR CAREER, YOUR WAY</div>
+            <h1>Let’s find your <span>next step.</span></h1>
+            <p>A little about you helps us create a roadmap that makes sense for the career you’re working toward.</p>
+            <div class="aside-note"><span class="note-icon">✳</span><p><strong>Start wherever you are.</strong><br>There are no wrong answers—and every skill you have counts.</p></div>
+            <div class="assessment-steps"><div class="assessment-step active"><span>01</span> Tell us about you</div><div class="assessment-step"><span>02</span> See your opportunities</div><div class="assessment-step"><span>03</span> Get your roadmap</div></div>
+        </aside>
+        <section class="form-card">
+            <div class="form-card-heading"><span class="form-kicker">YOUR STARTING POINT</span><span class="form-time">◷ &nbsp;2 min</span></div>
+            <h2>Tell us a little about yourself</h2>
+            <p class="form-intro">We’ll use this to make your results personal and useful.</p>
+            <form action="{{ url_for('predict') }}" method="POST" class="assessment-form">
+                <label for="student-name">Your name</label>
+                <input id="student-name" type="text" name="student_name" placeholder="e.g. Alex Morgan" autocomplete="name" required>
+
+                <label for="education">Education</label>
+                <select id="education" name="education" required>
+                    <option value="" disabled selected>Select your qualification</option>
+                    <option>BCA</option><option>BSc</option><option>BTech</option><option>MCA</option><option>MSc</option><option>MTech</option><option>Other</option>
+                </select>
+
+                <label for="skills">Skills you already have</label>
+                <textarea id="skills" name="skills" rows="3" placeholder="e.g. HTML, CSS, teamwork, data analysis" required></textarea>
+                <span class="field-hint">Separate each skill with a comma.</span>
+
+                <label for="languages">Programming languages <span class="optional">(optional)</span></label>
+                <input id="languages" type="text" name="languages" placeholder="e.g. Python, Java, JavaScript">
+
+                <label for="career">The career you’re aiming for</label>
+                <input id="career" type="text" name="career" placeholder="e.g. Data scientist, web developer" required>
+
+                <label for="experience">How would you describe your experience?</label>
+                <select id="experience" name="experience" required>
+                    <option value="" disabled selected>Select your experience level</option>
+                    <option>Beginner</option><option>Intermediate</option><option>Advanced</option>
+                </select>
+                <button class="button form-submit" type="submit">Show me my roadmap <span aria-hidden="true">↗</span></button>
+                <p class="privacy-note">Your information is used to create your assessment and help you see your progress.</p>
+            </form>
+        </section>
+    </main>
+    <footer class="simple-footer">A good next step starts with knowing where you are.</footer>
+</body>
+</html>
