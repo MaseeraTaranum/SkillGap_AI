@@ -279,12 +279,6 @@
             text-decoration: underline;
         }
 
-        .learning-arrow {
-            margin-left: auto;
-            color: #7c3aed;
-            font-size: 22px;
-        }
-
         .result-actions {
             display: flex;
             flex-wrap: wrap;
@@ -503,7 +497,14 @@
 
                         {% set skill_name = item.skill|lower %}
 
-                        {% if skill_name == 'javascript' %}
+                        {% if skill_name == 'css' %}
+                        <a class="learning-resource"
+                           href="https://developer.mozilla.org/en-US/docs/Web/CSS"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning CSS ↗
+                        </a>
+
+                        {% elif skill_name == 'javascript' %}
                         <a class="learning-resource"
                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
                            target="_blank" rel="noopener noreferrer">
@@ -515,6 +516,13 @@
                            href="https://react.dev/learn"
                            target="_blank" rel="noopener noreferrer">
                             Start learning React ↗
+                        </a>
+
+                        {% elif skill_name == 'python' %}
+                        <a class="learning-resource"
+                           href="https://docs.python.org/3/tutorial/"
+                           target="_blank" rel="noopener noreferrer">
+                            Start learning Python ↗
                         </a>
 
                         {% elif skill_name == 'sql' %}
